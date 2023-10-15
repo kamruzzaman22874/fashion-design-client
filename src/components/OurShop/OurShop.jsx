@@ -8,7 +8,7 @@ import shop4 from "../../assets/image/shop4.webp"
 
 const OurShop = () => {
     return (
-        <div>
+        <div className='px-20 my-20'>
             {/* <SectionTitle
             
             ></SectionTitle> */}
@@ -19,16 +19,16 @@ const OurShop = () => {
                 </div>
                 <div className="space-y-6">
                     <h2 className="text-3xl">Welcome to Our Shop</h2>
-                    <p className='mb-10'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed massa at enim hendrerit scelerisque at ut nulla. Fusce pharetra consectetur lacus sed eleifend. Ut dolor sapien, posuere id turpis non, venenatis ultrices est. Nullam hendrerit at nisl sit amet scelerisque. Vestibulum nec dolor ac quam fringilla rhoncus nec vel dolor.
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed massa at enim hendrerit scelerisque at ut nulla. Fusce pharetra consectetur lacus sed eleifend. Ut dolor sapien, posuere id turpis non, venenatis ultrices est. Nullam hendrerit at nisl sit amet scelerisque. Vestibulum nec dolor ac quam fringilla rhoncus nec vel dolor.
 
                     </p>
                         
-                    <span className='py-5'>
+                    <div className='py-5'>
                             <RiDoubleQuotesL className='text-2xl' />
                         <p className='px-6'>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
                         </p>
-                    </span>
+                    </div>
                     <img src={signature} alt="" />
                 </div>
                 <div>
