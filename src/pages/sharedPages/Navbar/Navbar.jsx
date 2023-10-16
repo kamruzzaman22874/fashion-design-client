@@ -2,12 +2,21 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/navLogo.png"
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () => {
         logOut()
-            .then(() => { })
+            .then(() => { 
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Logout successfully done',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
             .catch(err => console.log(err));
     }
     const navItems = <>
@@ -16,6 +25,7 @@ const Navbar = () => {
             user ? <> <li><Link to="/">HOME</Link></li>
                 <li><Link to="/instructor">INSTRUCTORS</Link></li>
                 <li><Link to="/classes">CLASSES</Link></li>
+                <li><Link to="/dashboard">DASHBOARD</Link></li>
                 <div
                     className='avatar tooltip flex items-center gap-5 tooltip-bottom tooltip-secondary'
                     data-tip={user.displayName}>
@@ -33,14 +43,13 @@ const Navbar = () => {
                     <li><Link to="/instructor">INSTRUCTORS</Link></li>
                     <li><Link to="/classes">CLASSES</Link></li>
                     <li><Link to="/login">LOGIN</Link></li>
-                    <li><Link to="/dashboard">DASHBOARD</Link></li>
                 </>
         }
 
 
     </>
     return (
-        <div className="font-teko font-semibold fixed top-0 z-10 w-full">
+        <div className="font-teko font-semibold fixed top-0 z-10 w-full max-w-7xl mx-auto">
             <div className="navbar bg-[#a555ad] z-10">
                 <div className="navbar-start px-20">
                     <div className="dropdown">

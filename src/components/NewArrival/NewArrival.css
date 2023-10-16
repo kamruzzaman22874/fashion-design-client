@@ -8,3 +8,23 @@
     transition: transform 0.5s ease-in-out;
     opacity: 1;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    color: #333;
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #a555ad;
+    color: #fff;
+}

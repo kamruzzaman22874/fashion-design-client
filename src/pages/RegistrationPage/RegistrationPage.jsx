@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const RegistrationPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -25,6 +26,9 @@ const RegistrationPage = () => {
     
     return (
         <div className="my-10 px-20">
+            <Helmet>
+                <title>Fashion | Signup</title>
+            </Helmet>
             <div className="font-roboto h-full px-5">
                 <div className="md:flex  justify-center items-center py-10 md:px-16">
                     <div className="rounded-lg bg-transparent p-2 h-full">
@@ -34,7 +38,7 @@ const RegistrationPage = () => {
                     </div>
                     <div className="w-full">
                         <div className="max-w-md mx-auto mt-5 p-6 w-full shadow-2xl bg-white border-[#3ec5c7] bg-transparent rounded">
-                            <h2 className="text-2xl font-semibold mb-4 text-blue-800 uppercase">Sign Up</h2>
+                            <h2 className="text-2xl font-semibold mb-4 text-[#a555ad] uppercase">Sign Up</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-4">
                                     <label htmlFor="name" className="block  font-medium">Name</label>
@@ -90,7 +94,7 @@ const RegistrationPage = () => {
                                 <div className="mb-4">
                                     <label htmlFor="phoneNumber" className="block font-medium">Phone Number</label>
                                     <input
-                                        type="url"
+                                        type="number"
                                         id="phoneNumber"
                                         name="phoneNumber"
                                         {...register("phoneNumber")}
@@ -100,7 +104,7 @@ const RegistrationPage = () => {
                                 <div className="mb-4">
                                     <label htmlFor="address" className="block font-medium">Address</label>
                                     <input
-                                        type="url"
+                                        type="text"
                                         id="address"
                                         name="address"
                                         {...register("address")}

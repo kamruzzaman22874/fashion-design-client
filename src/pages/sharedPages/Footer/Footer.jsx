@@ -1,3 +1,4 @@
+import logo from "../../../assets/logo/errorPages.png"
 const Footer = () => {
     return (
         <section className="py-10 bg-gray-900 sm:pt-16 lg:pt-24">
@@ -83,7 +84,7 @@ const Footer = () => {
                 <hr className="mt-16 mb-10 border-gray-800" />
 
                 <div className="flex flex-wrap items-center justify-between">
-                    <img className="h-8 auto md:order-1" src="https://cdn.rareblocks.xyz/collection/celebration/images/logo-alt.svg" alt="" />
+                    <img className="h-12 rounded-xl auto md:order-1 bg-white" src={logo} alt="" />
 
                     <ul className="flex items-center space-x-3 md:order-3">
                         <li>

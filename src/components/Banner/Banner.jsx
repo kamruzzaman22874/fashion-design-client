@@ -18,7 +18,7 @@ const Banner = () => {
     }, [])
     return (
 
-        <div className="my-20">
+        <div className="my-[76px]">
             <Swiper navigation={true} autoplay={{ delay: 3000 }} loop={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide>
                     <div className='md:rleative md:-top-72 -top-2'>

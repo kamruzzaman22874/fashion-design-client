@@ -8,11 +8,7 @@ import shop4 from "../../assets/image/shop4.webp"
 
 const OurShop = () => {
     return (
-        <div className='px-20 my-20'>
-            {/* <SectionTitle
-            
-            ></SectionTitle> */}
-
+        <div className='md:px-20 md:my-20 p-5 text-white'>
             <div className="grid md:grid-cols-3 gap-5">
                 <div>
                     <img src={shop1} alt="" />
@@ -29,12 +25,12 @@ const OurShop = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
                         </p>
                     </div>
-                    <img src={signature} alt="" />
+                    <img className='' src={signature} alt="" />
                 </div>
                 <div>
                     <img src={shop2} alt="" />
-                    <img src={shop3} alt="" />
-                    <img src={shop4} alt="" />
+                    {/* <img src={shop3} alt="" />
+                    <img src={shop4} alt="" /> */}
                 </div>
             </div>
         </div>

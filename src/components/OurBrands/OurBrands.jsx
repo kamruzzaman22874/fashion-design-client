@@ -9,7 +9,7 @@ import Marquee from "react-fast-marquee";
 import SectionTitle from "../../pages/sharedPages/SectionTitle/SectionTitle"
 const OurBrands = () => {
     return (
-        <div className="my-20 px-20 space-y-5">
+        <div className="my-20 md:px-20 space-y-5">
             <SectionTitle
                 title="OUR BRANDS"
                 subTitle="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
