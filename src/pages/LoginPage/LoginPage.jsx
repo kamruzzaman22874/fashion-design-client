@@ -10,10 +10,10 @@ import { GiSheikahEye, GiTemplarEye } from 'react-icons/gi';
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 const LoginPage = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const { userLogin, googleSignIn } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState();
+    const [error, setError] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || "/"
@@ -22,18 +22,24 @@ const LoginPage = () => {
     const onSubmit = (data) => {
         userLogin(data.email, data.password)
             .then(result => {
-                const user = result.data.user;
+                const user = result.user;
+                console.log(user);
+                reset();
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
                     title: 'Your work has been saved',
                     showConfirmButton: false,
                     timer: 1500
-                })
-                console.log(user);
-                alert("user login successful")
+                });
+                
+                navigate(from, { replace: true })
+                
             })
-        navigate(from, { replace: true })
+            .catch((err) => {
+                setError(err.message);
+            });
+            
     };
 
 
@@ -103,12 +109,12 @@ const LoginPage = () => {
                                     type={showPassword ? 'text' : 'password'}
                                     id="password"
                                     name="password"
-                                    {...register("password", { min: 6, required: true })}
+                                    {...register("password", { required: true })}
                                     className="w-full border rounded py-2 px-3 text-gray-700 focus:outline-none focus:border-blue-400"
                                 />
                                 <span
                                     onClick={togglePasswordVisibility}
-                                    className="absolute top-1/2 right-60 mt-5 transform -translate-y-1/2 cursor-pointer"
+                                    className="absolute right-60 mt-5 transform -translate-y-1/2 cursor-pointer"
                                 >
                                     {showPassword ? (
                                         <GiSheikahEye className="text-xl text-blue-500"/>
@@ -116,10 +122,13 @@ const LoginPage = () => {
                                             <GiTemplarEye className="text-xl text-red-500" />
                                     )}
                                 </span>
+                                {
+                                    error && <p className='text-red-500 text-lg'>User not valid</p>
+                                }
                                 {errors.password && <span className="text-red-500">Password is required</span>}
                             </div>
                             <p className="text-center py-5">DO NOT HAVE AN ACCOUNT? <Link to="/signup" className="underline">SIGN UP</Link> </p>
-                            <p className="text-center text-red-500">{error}</p>
+                            
                             <div className="text-center">
                                 <button
                                     type="submit"
@@ -127,7 +136,7 @@ const LoginPage = () => {
                                 >
                                     Login
                                 </button>
-                            </div>
+                            </div> 
                         </form>
                         <div className="divider">OR</div>
                         <div className="flex justify-center items-center gap-10 text-3xl py-3">

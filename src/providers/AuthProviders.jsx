@@ -21,10 +21,12 @@ const AuthProviders = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const userUpdateProfile = (name, photo) => {
+    const userUpdateProfile = (name, photo, phoneNumber) => {
         return updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL: photo
+            photoURL: photo,
+            phoneNumber: phoneNumber
+
         })
     }
 

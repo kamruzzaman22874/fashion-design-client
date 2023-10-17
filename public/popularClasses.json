@@ -5,7 +5,7 @@
         "image1":"https://i.ibb.co/x1WcskY/product2.webp",
         "instructorName":"Hasan",
         "instructorEmail":"hasan@gmail.com",
-        "availbleSeat":"67",
+        "availableSeat":"67",
         "rating": "3.2",
         "price": "5500"
     },
@@ -15,7 +15,7 @@
         "image1": "https://i.ibb.co/sQ2Fr8d/product4.webp",
         "instructorName":"Jamal",
         "instructorEmail":"jamal@gmail.com",
-        "availbleSeat":"45",
+        "availableSeat":"45",
         "rating": "4.5",
         "price": "5000"
     },
@@ -25,7 +25,7 @@
         "image1": "https://i.ibb.co/gdFw8RY/product6.webp",
         "instructorName":"Rony",
         "instructorEmail":"rony@gmail.com",
-        "availbleSeat":"25",
+        "availableSeat":"25",
         "rating": "5.2",
         "price": "6000"
     },
@@ -35,7 +35,7 @@
         "image1": "https://i.ibb.co/qnwMySw/product8.webp",
         "instructorName":"Imran",
         "instructorEmail":"imran@gmail.com",
-        "availbleSeat":"45",
+        "availableSeat":"45",
         "rating": "5.3",
         "price": "3000"
     },
@@ -45,7 +45,7 @@
         "image1": "https://i.ibb.co/Mpm2jQ7/product3.webp",
         "instructorName":"Adnan",
         "instructorEmail": "adnan@gmail.com",
-        "availbleSeat":"15",
+        "availableSeat":"15",
         "rating": "3.7",
         "price": "2500"
     },
@@ -55,7 +55,7 @@
         "image1": "https://i.ibb.co/sQ2Fr8d/product4.webp",
         "instructorName":"Sajib",
         "instructorEmail": "sajib@gmail.com",
-        "availbleSeat":"45",
+        "availableSeat":"45",
         "rating": "5.0",
         "price": "2000"
     }

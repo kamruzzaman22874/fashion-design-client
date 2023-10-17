@@ -3,9 +3,12 @@ import logo from "../../../assets/logo/navLogo.png"
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import { FaCartArrowDown } from 'react-icons/fa';
+import useProduct from "../../../hooks/useProduct";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+    const [products] = useProduct()
     const handleLogout = () => {
         logOut()
             .then(() => { 
@@ -26,6 +29,15 @@ const Navbar = () => {
                 <li><Link to="/instructor">INSTRUCTORS</Link></li>
                 <li><Link to="/classes">CLASSES</Link></li>
                 <li><Link to="/dashboard">DASHBOARD</Link></li>
+                <li className=" px-2 py-1">
+                    <Link to="/dashboard/myproduct">
+                        <button className="flex justify-center items-center">
+                            <FaCartArrowDown className="text-yellow-400" />
+                            <div className="badge badge-secondary text-white"> +{ products ?.length  || 0}</div>
+                        </button>
+                        
+                    </Link>
+                </li>
                 <div
                     className='avatar tooltip flex items-center gap-5 tooltip-bottom tooltip-secondary'
                     data-tip={user.displayName}>

@@ -5,9 +5,10 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const RegistrationPage = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const { createUser, userUpdateProfile } = useContext(AuthContext);
     const navigate = useNavigate()
     const onSubmit = (data) => {
@@ -17,13 +18,40 @@ const RegistrationPage = () => {
                 console.log(loggedUser);
                 userUpdateProfile(data.name, data.photo)
                     .then(() => {
+                        const saveUser = {
+                            name: data.name,
+                            email: data.email,
+                            image: data.photoURL,
+                            gender: data.gender,
+                            phoneNumber: data.phoneNumber,
+                            address: data.address
+                        };
+                        fetch("http://localhost:5000/users", {
+                            method: 'POST',
+                            headers: { "content-type": "application/json" },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                
+                                if (data.insertedId) {
+                                    reset()
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "User created successfully",
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                    });
+                                }
+                            })
                         navigate("/")
                     })
                     .catch(err => console.log(err))
             })
             .catch(err => console.log(err))
     };
-    
+
     return (
         <div className="my-10 px-20">
             <Helmet>
@@ -68,10 +96,11 @@ const RegistrationPage = () => {
                                         type="password"
                                         id="password"
                                         name="password"
-                                        {...register("password", { required: true })}
+                                        {...register("password", { required: true, minLength: 6 })}
                                         className="w-full border rounded py-2 px-3 text-gray-700 focus:outline-none focus:border-blue-400"
                                     />
-                                    {errors.password && <span className="text-red-500">Password is required</span>}
+                                    {errors.password && <span className="text-red-500">Password Must be six characters</span>}
+                                    {/* {errors.password && <span className="text-red-500">Password is required</span>} */}
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="photoURL" className="block font-medium">Photo URL</label>
