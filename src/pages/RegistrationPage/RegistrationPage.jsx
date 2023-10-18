@@ -6,9 +6,10 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../sharedPages/SocialLogin/SocialLogin";
 
 const RegistrationPage = () => {
-    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, userUpdateProfile } = useContext(AuthContext);
     const navigate = useNavigate()
     const onSubmit = (data) => {
@@ -33,7 +34,7 @@ const RegistrationPage = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                
+
                                 if (data.insertedId) {
                                     reset()
                                     Swal.fire({
@@ -149,6 +150,9 @@ const RegistrationPage = () => {
                                         Sign Up
                                     </button>
                                 </div>
+                                <div className="divider">OR</div>
+                                <SocialLogin />
+
                             </form>
                         </div>
 

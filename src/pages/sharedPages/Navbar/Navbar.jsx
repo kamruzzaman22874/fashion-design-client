@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/navLogo.png"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
 import Swal from "sweetalert2";
 import { FaCartArrowDown } from 'react-icons/fa';
 import useProduct from "../../../hooks/useProduct";
+import { BsToggleOn } from 'react-icons/bs';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [products] = useProduct()
     const handleLogout = () => {
         logOut()
-            .then(() => { 
+            .then(() => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -22,20 +23,35 @@ const Navbar = () => {
             })
             .catch(err => console.log(err));
     }
+
+    const [isBlackBackground, setIsBlackBackground] = useState(false);
+
+    const handleDoubleClick = () => {
+        setIsBlackBackground((prev) => !prev);
+    };
+
+    const bodyStyles = isBlackBackground
+        ? { backgroundColor: 'bg-black', color: 'bg-white' }
+        : { backgroundColor: 'white', color: 'black' };
+
+
+
     const navItems = <>
 
         {
-            user ? <> <li><Link to="/">HOME</Link></li>
+            user ? <>
+                <button onDoubleClick={handleDoubleClick}> <BsToggleOn style={bodyStyles} className="text-3xl" /> </button>
+                <li><Link to="/">HOME</Link></li>
                 <li><Link to="/instructor">INSTRUCTORS</Link></li>
-                <li><Link to="/classes">CLASSES</Link></li>
+                <li><Link to="/myproduct">CLASSES</Link></li>
                 <li><Link to="/dashboard">DASHBOARD</Link></li>
                 <li className=" px-2 py-1">
                     <Link to="/dashboard/myproduct">
                         <button className="flex justify-center items-center">
                             <FaCartArrowDown className="text-yellow-400" />
-                            <div className="badge badge-secondary text-white"> +{ products ?.length  || 0}</div>
+                            <div className="badge badge-secondary text-white"> +{products?.length || 0}</div>
                         </button>
-                        
+
                     </Link>
                 </li>
                 <div
@@ -48,12 +64,14 @@ const Navbar = () => {
                 <li><Link onClick={handleLogout} >
                     LOGOUT
                 </Link></li>
-            </> 
-            :
-            
-                <> <li><Link to="/">HOME</Link></li>
+            </>
+                :
+
+                <>
+                    {/* <button onDoubleClick={handleDoubleClick}> <BsToggleOn style={bodyStyles} className="text-3xl" /> </button> */}
+                    <li><Link to="/">HOME</Link></li>
                     <li><Link to="/instructor">INSTRUCTORS</Link></li>
-                    <li><Link to="/classes">CLASSES</Link></li>
+                    <li><Link to="/myproduct">CLASSES</Link></li>
                     <li><Link to="/login">LOGIN</Link></li>
                 </>
         }

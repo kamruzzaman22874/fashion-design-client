@@ -4,14 +4,13 @@ import Lottie from "lottie-react"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FcGoogle } from 'react-icons/fc';
-import { BsGithub } from 'react-icons/bs';
 import { GiSheikahEye, GiTemplarEye } from 'react-icons/gi';
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../sharedPages/SocialLogin/SocialLogin";
 const LoginPage = () => {
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
-    const { userLogin, googleSignIn } = useContext(AuthContext)
+    const { userLogin} = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -43,40 +42,10 @@ const LoginPage = () => {
     };
 
 
-    const handleGoogleSignIn = () => {
-        googleSignIn()
-            .then((result) => {
-                console.log(result);
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Login successfull',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                navigate(from, { replace: true });
-            })
-            .catch(err => {
-                setError(err);
-                // toast.error('Login failed please try again');
-
-            })
-    };
-
-
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-    // const handleGithubSignIn = () => {
-    //     githubSignIn((result) => {
-    //         console.log(result);
-    //         toast('successfully login with github');
-    //         navigate(from, { replace: true });
-    //     }).catch((err) => {
-    //         setError(err);
-    //         toast.error('Login failed please try again');
-    //     });
-    // };
+   
     return (
         <div className="font-roboto  px-5 pb-5">
             <Helmet>
@@ -139,14 +108,7 @@ const LoginPage = () => {
                             </div> 
                         </form>
                         <div className="divider">OR</div>
-                        <div className="flex justify-center items-center gap-10 text-3xl py-3">
-                            <button className="" onClick={handleGoogleSignIn}>
-                                <FcGoogle />
-                            </button>
-                            <button className="">
-                                <BsGithub />
-                            </button>
-                        </div>
+                        <SocialLogin/>
                     </div>
 
                 </div>

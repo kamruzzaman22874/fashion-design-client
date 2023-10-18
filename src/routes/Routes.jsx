@@ -5,7 +5,11 @@ import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Dashboard from "../layouts/Dashboard";
-import MyProduct from "../pages/Dashboard/MyProduct/MyProduct";
+import PrivateRoutes from "./PrivateRoutes";
+import CommonUsersInfo from "../components/CommonUsersInfo/CommonUsersInfo";
+import UserInfo from "../components/UserInfo/UserInfo";
+import MyProduct from "../pages/Dashboard/MyProduct/MyProducts";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -24,17 +28,30 @@ export const router = createBrowserRouter([
             {
                 path: "login",
                 element: <LoginPage/>
+            },
+            {
+                path: "/myproduct",
+                element: <MyProduct />
             }
         ]
     },
     {
         path: "dashboard",
-        element: <Dashboard/>,
+        element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
+        
         children: [
             {
+                path: "/dashboard",
+                element: <CommonUsersInfo/>
+            },
+            {
                 path: "myproduct",
-                element: <MyProduct/>
-            }
+                element: <UserInfo/>
+            },
+            {
+                path: "manageusers",
+                element: <AllUsers/>
+            },
         ]
     },
 ]);
