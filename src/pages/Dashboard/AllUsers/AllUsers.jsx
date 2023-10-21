@@ -1,49 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { BsTrash } from "react-icons/bs";
-import { FaUserShield } from "react-icons/fa";
+import { FaUserSecret, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-
 const AllUsers = () => {
+    const token = localStorage.getItem("access-token")
     const { data: users = [], refetch} = useQuery({
-        queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/users");
+            const res = await fetch("http://localhost:5000/users",{
+                headers: {authorization: `bearer ${token}`},
+            });
             return res.json()
         }
     })
 
-    const handleDeleteItem = (user) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${user._id}`, {
-                    method: "DELETE"
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        refetch()
-                        if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
-
-            }
-        })
-    }
-
-
+    
     const handleMakeAdmin =(user) =>{
         fetch(`http://localhost:5000/users/admin/${user._id}`,{
             method: "PATCH"
@@ -64,9 +35,59 @@ const AllUsers = () => {
         })
     }
 
+    const handleMakeInstructor = (user) =>{
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+            method: "PATCH"
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            refetch()
+            if (data.modifiedCount > 0){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${user?.name} is an instructor now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
+
+    const handleDeleteItem = (user) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/${user?._id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        refetch()
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+
+            }
+        })
+    }
+
 
     return (
-        <div className="h-screen w-full my-10">
+        <div className="h-screen w-full my-10 text-white">
             <h2>Total users: {users.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -76,7 +97,8 @@ const AllUsers = () => {
                             <th>SL.</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>Make Admin</th>
+                            <th>Make Instructor</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -102,6 +124,13 @@ const AllUsers = () => {
                                      <FaUserShield className="text-2xl text-green-600" />
                                     </button>
                                      } 
+                                </td>
+                                <td>
+                                    {user?.role === "instructor" ? "instructor":
+                                    
+                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs">  
+                                     <FaUserSecret className="text-2xl text-green-600" />
+                                    </button>}
                                 </td>
                                 <td>
                                     <button onClick={() => handleDeleteItem(user)} className="btn btn-ghost btn-xs">

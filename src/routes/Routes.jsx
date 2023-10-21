@@ -10,6 +10,10 @@ import CommonUsersInfo from "../components/CommonUsersInfo/CommonUsersInfo";
 import UserInfo from "../components/UserInfo/UserInfo";
 import MyProduct from "../pages/Dashboard/MyProduct/MyProducts";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import Instructor from "../components/Instructor/Instructor";
+import AddClass from "../components/Instructor/AddClass";
+import MyClasses from "../components/Instructor/MyClasses";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -22,22 +26,29 @@ export const router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: "signup",
+                path: "/signup",
                 element: <RegistrationPage/>
             },
             {
-                path: "login",
+                path: "/login",
                 element: <LoginPage/>
             },
             {
                 path: "/myproduct",
                 element: <MyProduct />
+            },
+            {
+                path: "/instructor",
+                element: <Instructor/>
             }
         ]
     },
     {
         path: "dashboard",
-        element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
+        element: 
+        <PrivateRoutes>
+            <Dashboard />
+        </PrivateRoutes>,
         
         children: [
             {
@@ -52,6 +63,18 @@ export const router = createBrowserRouter([
                 path: "manageusers",
                 element: <AllUsers/>
             },
+            {
+                path: "addclass",
+                element: <AddClass/>
+            },
+            {
+                path: "myclasses",
+                element: <MyClasses/>
+            },
+            {
+                path: "payment",
+                element: <Payment/>
+            }
         ]
     },
 ]);

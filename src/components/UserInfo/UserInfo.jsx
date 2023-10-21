@@ -1,9 +1,11 @@
 import Swal from "sweetalert2";
 import useProduct from "../../hooks/useProduct";
 import { BsTrash } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const UserInfo = () => {
-    const [usersInfo,refetch] = useProduct()
+    const [products,refetch] = useProduct()
+  
     const handleDeleteItem = (id) => {
         console.log("delete item", id);
         Swal.fire({
@@ -35,15 +37,13 @@ const UserInfo = () => {
         })
     }
     return (
-        <div className="overflow-x-auto my-20 w-full">
+        <div className="overflow-x-auto my-20 w-full text-white">
             <table className="table">
-                {/* head */}
                 <thead>
                     <tr className="text-white">
                         <th>SL.</th>
                         <th>image</th>
                         <th>Name</th>
-                        <th>Email</th>
                         <th>Price</th>
                         <th>Pay</th>
                         <th>Delete</th>
@@ -51,7 +51,7 @@ const UserInfo = () => {
                 </thead>
                 <tbody>
                     {
-                        usersInfo?.map((item, index) => <tr key={item?._id}>
+                        products?.map((item, index) => <tr key={item?._id}>
                             <td>{index + 1}</td>
                             <td>
                                 <div className="flex items-center space-x-3">
@@ -65,7 +65,6 @@ const UserInfo = () => {
                             <td>
                                 {item.classesName}
                             </td>
-                            <td>{item.email}</td>
                             <td className="text-center">${item.price}</td>
                             <td>pending</td>
                             <td>
@@ -78,6 +77,13 @@ const UserInfo = () => {
 
                 </tbody>
             </table>
+            <div className="flex justify-center bg-blue-500 py-2 rounded">
+                <Link to="/dashboard/payment">
+                <button>
+                    Payment
+                </button>
+                </Link>
+            </div>
         </div>
     );
 };

@@ -8,14 +8,14 @@ const InstructorNavbar = () => {
             <div className='bg-[#116A7B] mb-2 px-4 py-2 text-center rounded hover:bg-[#090580] border-b-4 border-b-[#090580] hover:border-b-orange-400'>
                 <Link
                     className='text-md font-semibold flex items-center gap-2'
-                    to='/dashboard/instructor-addclass'>
+                    to='/dashboard/addclass'>
                     <MdOutlineLibraryAddCheck /> Add a Class
                 </Link>
             </div>
             <br />
             <div className='bg-[#116A7B] px-4 py-2 w-full text-center rounded hover:bg-[#090580] border-b-4 border-b-[#090580] hover:border-b-orange-400'>
-                <Link to='/dashboard/myclass' className='text-md font-semibold flex items-center gap-2'>
-                    <MdHotelClass />	My Class
+                <Link to='/dashboard/myclasses' className='text-md font-semibold flex items-center gap-2'>
+                    <MdHotelClass />My Class
                 </Link>
             </div>
             <br />

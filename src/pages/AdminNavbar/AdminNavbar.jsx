@@ -5,7 +5,7 @@ const AdminNavbar = () => {
     return (
         <div className='h-full'>
             <h2 className='mb-3 flex items-center gap-2'> <AiFillHome /> Admin Home</h2>
-            <li className='bg-[#116A7B] px-4 py-1 mb-3 w-full text-center rounded hover:bg-[#090580] border-b-4 border-b-[#090580] hover:border-b-orange-400'>
+            <li className=' px-4 py-1 mb-3 w-full text-center rounded  border-b-4 border-b-[#090580] hover:border-b-orange-400'>
                 <a
                     rel='noopener noreferrer'
                     href='#'
@@ -16,7 +16,7 @@ const AdminNavbar = () => {
                     </Link>
                 </a>
             </li>
-            <li className='bg-[#116A7B] px-4 py-1 w-full text-center rounded hover:bg-[#090580] border-b-4 border-b-[#090580] hover:border-b-orange-400'>
+            <li className=' px-4 py-1 w-full text-center rounded  border-b-4 border-b-[#090580] hover:border-b-orange-400'>
                 <a
                     rel='noopener noreferrer'
                     href='#'

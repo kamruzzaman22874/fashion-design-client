@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 const CommonUsersInfo = () => {
     const {user} = useContext(AuthContext)
     return (
-        <div className="w-full">
+        <div className="w-full text-white">
             {
                 user && <> 
                 {/* <h2 className="uppercase text-2xl text-center">Users dashboard</h2> */}
