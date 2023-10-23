@@ -6,7 +6,6 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Dashboard from "../layouts/Dashboard";
 import PrivateRoutes from "./PrivateRoutes";
-import CommonUsersInfo from "../components/CommonUsersInfo/CommonUsersInfo";
 import UserInfo from "../components/UserInfo/UserInfo";
 import MyProduct from "../pages/Dashboard/MyProduct/MyProducts";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
@@ -14,6 +13,10 @@ import Instructor from "../components/Instructor/Instructor";
 import AddClass from "../components/Instructor/AddClass";
 import MyClasses from "../components/Instructor/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 
 export const router = createBrowserRouter([
     {
@@ -34,7 +37,7 @@ export const router = createBrowserRouter([
                 element: <LoginPage/>
             },
             {
-                path: "/myproduct",
+                path: "/classes",
                 element: <MyProduct />
             },
             {
@@ -52,16 +55,29 @@ export const router = createBrowserRouter([
         
         children: [
             {
-                path: "/dashboard",
-                element: <CommonUsersInfo/>
+                path: "userhome",
+                element: <UserHome/>
             },
             {
                 path: "myproduct",
                 element: <UserInfo/>
             },
+
+            // admin 
+            {
+                path: "adminHome",
+                element: <AdminHome/>
+            },
+
             {
                 path: "manageusers",
-                element: <AllUsers/>
+                element: <PrivateRoutes><AllUsers/></PrivateRoutes>
+            },
+
+            // Instructor 
+            {
+                path: "instructorhome",
+                element: <InstructorHome/>
             },
             {
                 path: "addclass",
@@ -70,6 +86,10 @@ export const router = createBrowserRouter([
             {
                 path: "myclasses",
                 element: <MyClasses/>
+            },
+            {
+                path: "manageclasses",
+                element: <ManageClasses/>
             },
             {
                 path: "payment",

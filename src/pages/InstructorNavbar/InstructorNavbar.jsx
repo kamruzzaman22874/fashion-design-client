@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 const InstructorNavbar = () => {
     return (
         <div className='mt-8  text-white shadow-xl p-8 h-full w-full'>
-            <h2 className="flex items-center gap-2 text-md font-mono mb-3"> <FaHome /> Instructor Home</h2>
+            <Link to="/dashboard/instructorhome">
+                <h2 className="flex items-center gap-2 text-md font-mono mb-3"> <FaHome /> Instructor Home</h2>
+            </Link>
             <div className='bg-[#116A7B] mb-2 px-4 py-2 text-center rounded hover:bg-[#090580] border-b-4 border-b-[#090580] hover:border-b-orange-400'>
                 <Link
                     className='text-md font-semibold flex items-center gap-2'

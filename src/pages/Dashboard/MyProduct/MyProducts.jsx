@@ -1,7 +1,13 @@
-import useProduct from "../../../hooks/useProduct";
+import { useEffect, useState } from "react";
 const MyProduct = () => {
-    const [products] = useProduct()
-    console.log(products)
+    const [ products, setProducts] = useState([])
+    useEffect(() =>{
+        fetch("http://localhost:5000/classes")
+        .then(res => res.json())
+        .then(data =>{
+            setProducts(data)
+    })
+  },[])
     return (
         <div className="my-[76px] w-full">
             <div className="grid md:grid-cols-3 gap-5 p-5 text-white">
@@ -13,7 +19,7 @@ const MyProduct = () => {
                                 {product?.classesName}
                             </h2>
                             <p>Instructor : {product.instructorName}</p>
-                            <p>Available Seat : {product.availableSeat}</p>
+                            <p>Available Seat : {product.availableSeats}</p>
                             <p>Price : ${product.price}</p>
                             <div className="w-full">
                                 <button className="bg-[#a555ad] px-6 py-2 w-full text-white rounded hover:bg-[#73097c]">Select Now</button>

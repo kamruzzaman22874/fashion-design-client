@@ -14,8 +14,8 @@ const Dashboard = () => {
 	const [isAdmin] = useAdmin();
 	const [isInstructor] = useInstructor()
 	return (
-		<div className='grid md:grid-cols-12 p-2'>
-			<div className='h-screen col-span-4 p-3 space-y-2 w-60 border  shadow-2xl ml-24 text-white dark:text-gray-100 sticky top-0'>
+		<div className='grid md:grid-cols-12 p-2 w-full'>
+			<div className='h-screen col-span-3 p-3 space-y-2 w-72 shadow-2xl  text-white dark:text-gray-100 sticky top-0'>
 				<div className='flex items-center p-2 space-x-4'>
 					<img
 						src={user ? user?.photoURL : ''}
@@ -66,7 +66,7 @@ const Dashboard = () => {
 					</ul>
 				</div>
 			</div>
-			<div className='col-span-8 flex items-center justify-center'>
+			<div className='col-span-9 flex justify-center'>
 				<Outlet />
 			</div>
 		</div>

@@ -4,9 +4,10 @@ import { MdAdminPanelSettings, MdOutlineClass } from "react-icons/md"
 const UsersNavbar = () => {
     return (
         <div className="">
-            <h2 className="flex items-center ml-4 gap-2 text-md mb-3">
+           <Link to="/dashboard/userhome">
+           <h2 className="flex items-center ml-4 gap-2 text-md mb-3">
                 <FaHome /> User Home
-            </h2>
+            </h2></Link>
             <li className="">
                 <div className="px-4 py-2 text-center rounded ">
                     <Link className="flex items-center gap-2" to="/dashboard/myproduct"> <MdOutlineClass /> My Selected Classes</Link>

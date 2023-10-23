@@ -15,9 +15,10 @@ const Instructor =() =>{
 
     return(
         <div className="my-20">
+            <h2>Popular Instructor</h2>
             <div className="grid md:grid-cols-3 gap-8 px-12 py-10">
                 {
-                    instructors.map(instructor => <SingleInstrucor
+                    instructors?.map(instructor => <SingleInstrucor
                     key={instructor._id}
                     instructor={instructor}
                     >

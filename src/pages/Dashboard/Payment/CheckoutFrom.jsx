@@ -73,7 +73,7 @@ const CheckoutForm =({price,products}) =>{
             setCardError(confirmError)
         }
         setProccessing(false)
-        if(paymentIntent.status === "succeeded"){
+        if(paymentIntent?.status === "succeeded"){
             setTransactionId(paymentIntent.id)
             const payment ={
                 name: user?.displayName,
@@ -81,7 +81,7 @@ const CheckoutForm =({price,products}) =>{
                 data: new Date(),
                 transactionId: paymentIntent.id,
                 status: "service pending",
-                price: price,
+                price: parseFloat(price),
                 classesItems: products.map(item => item._id),
                 productItems: products.map(item => item.productId),
                 classesName: products.map(item => item.classesName),

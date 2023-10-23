@@ -2,7 +2,6 @@
     {
         "classesName":"Indian Bag",
         "image":"https://i.ibb.co/28sGrf8/product1.webp",
-        "image1":"https://i.ibb.co/x1WcskY/product2.webp",
         "instructorName":"Hasan",
         "instructorEmail":"hasan@gmail.com",
         "availableSeat":"67",
@@ -12,7 +11,6 @@
     {
         "classesName":"Thainlad Special Bag",
         "image": "https://i.ibb.co/Mpm2jQ7/product3.webp",
-        "image1": "https://i.ibb.co/sQ2Fr8d/product4.webp",
         "instructorName":"Jamal",
         "instructorEmail":"jamal@gmail.com",
         "availableSeat":"45",
@@ -22,7 +20,6 @@
     {
         "classesName":"Modern Bag",
         "image": "https://i.ibb.co/rGF5kZC/product5.webp",
-        "image1": "https://i.ibb.co/gdFw8RY/product6.webp",
         "instructorName":"Rony",
         "instructorEmail":"rony@gmail.com",
         "availableSeat":"25",
@@ -32,7 +29,6 @@
     {
         "classesName":"Plazu",
         "image": "https://i.ibb.co/SyrymCn/product7.webp",
-        "image1": "https://i.ibb.co/qnwMySw/product8.webp",
         "instructorName":"Imran",
         "instructorEmail":"imran@gmail.com",
         "availableSeat":"45",
@@ -42,7 +38,6 @@
     {
         "classesName":"Three pice",
         "image": "https://i.ibb.co/Mpm2jQ7/product3.webp",
-        "image1": "https://i.ibb.co/Mpm2jQ7/product3.webp",
         "instructorName":"Adnan",
         "instructorEmail": "adnan@gmail.com",
         "availableSeat":"15",
@@ -52,7 +47,6 @@
     {
         "classesName":"Money Bag",
         "image": "https://i.ibb.co/sQ2Fr8d/product4.webp",
-        "image1": "https://i.ibb.co/sQ2Fr8d/product4.webp",
         "instructorName":"Sajib",
         "instructorEmail": "sajib@gmail.com",
         "availableSeat":"45",

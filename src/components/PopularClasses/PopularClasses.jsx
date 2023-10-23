@@ -15,11 +15,11 @@ const PopularClasses = ({ product }) => {
     const navigate = useNavigate()
     const location = useLocation()
     const [,refetch] = useProduct()
-    const {_id, image, image1, classesName, instructorName, instructorEmail, price, availableSeat, rating } = product;
+    const {_id, image, image1, className, instructorName, instructorEmail, price, availableSeats, rating } = product;
     const handleAddToCart = (product) => {
         console.log(product);
         if (user && user.email) {
-            const productItem = {productId: _id, image, image1, email:user?.email,classesName,instructorName,price,availableSeat,rating}
+            const productItem = {productId: _id, image, image1, email:user?.email,className,instructorName,price,availableSeats,rating}
             fetch("http://localhost:5000/products", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
@@ -56,19 +56,16 @@ const PopularClasses = ({ product }) => {
         }
     }
     return (
-        <div className="bg-transparent opacity-100 border group hover:shadow-xl w-full h-[600px] font-lato">
-            <figure data-aos="zoom-in" className="md:px-10 md:pt-10 group-hover:hidden">
+        <div className={`${availableSeats === 0 ? "bg-red-500" : "bg-transparent"} opacity-100 border group hover:shadow-xl w-full h-[600px] font-lato`}>
+            <figure data-aos="zoom-in" className="md:px-10 md:pt-10">
                 <img src={image} alt="product" className="rounded-xl h-[300px] w-full" />
             </figure>
-            <figure data-aos="zoom-in" className="md:px-10 md:pt-10 hidden group-hover:block card_title transition-all duration-200 group-hover:rotatet group-hover:transation-all">
-                <img src={image1} alt="product" className="rounded-xl bg-transparent group-hover:h-[300px] group-hover:w-full" />
-            </figure>
             <div className="md:p-10 p-5 space-y-2 w-full text-white">
-                <h2 className="">Product Name: {classesName}</h2>
+                <h2 className="">Product Name: {className}</h2>
                 <h2 className="">Instructor Name: {instructorName}</h2>
                 <h2 className="">Instructor Email: {instructorEmail}</h2>
                 <div className="flex justify-between items-center">
-                    <h2 className="">Available Seat: {availableSeat}</h2>
+                    <h2 className="">Available Seat: {availableSeats}</h2>
                     <p className="">Price: ${price}</p>
                 </div>
                 <p className="">

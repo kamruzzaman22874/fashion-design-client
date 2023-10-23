@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/navLogo.png"
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
 import Swal from "sweetalert2";
 import { FaCartArrowDown } from 'react-icons/fa';
 import useProduct from "../../../hooks/useProduct";
-import { BsToggleOn } from 'react-icons/bs';
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [products] = useProduct()
+    const [isAdmin] = useAdmin()
+    console.log(isAdmin)
+    const [isInstructor] = useInstructor()
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -24,27 +28,21 @@ const Navbar = () => {
             .catch(err => console.log(err));
     }
 
-    const [isBlackBackground, setIsBlackBackground] = useState(false);
-
-    const handleDoubleClick = () => {
-        setIsBlackBackground((prev) => !prev);
-    };
-
-    const bodyStyles = isBlackBackground
-        ? { backgroundColor: 'bg-black', color: 'bg-white' }
-        : { backgroundColor: 'white', color: 'black' };
-
 
 
     const navItems = <>
 
         {
             user ? <>
-                <button onDoubleClick={handleDoubleClick}> <BsToggleOn style={bodyStyles} className="text-3xl" /> </button>
                 <li><Link to="/">HOME</Link></li>
                 <li><Link to="/instructor">INSTRUCTORS</Link></li>
-                <li><Link to="/myproduct">CLASSES</Link></li>
-                <li><Link to="/dashboard">DASHBOARD</Link></li>
+                <li><Link to="/classes">CLASSES</Link></li>
+                {
+                    isAdmin?.role ==="admin" ? (<li><Link to="/dashboard/adminhome">DASHBOARD</Link></li>) :
+                    isInstructor?.role ==="instructor"? (<li><Link to="/dashboard/instructorhome">DASHBOARD</Link></li>) :
+                    (<li><Link to="/dashboard/userhome">DASHBOARD</Link></li>)
+
+                }
                 <li className=" px-2 py-1">
                     <Link to="/dashboard/myproduct">
                         <button className="flex justify-center items-center">
@@ -71,7 +69,7 @@ const Navbar = () => {
                     {/* <button onDoubleClick={handleDoubleClick}> <BsToggleOn style={bodyStyles} className="text-3xl" /> </button> */}
                     <li><Link to="/">HOME</Link></li>
                     <li><Link to="/instructor">INSTRUCTORS</Link></li>
-                    <li><Link to="/myproduct">CLASSES</Link></li>
+                    <li><Link to="/classes">CLASSES</Link></li>
                     <li><Link to="/login">LOGIN</Link></li>
                 </>
         }

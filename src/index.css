@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn.btn-disabled, .btn[disabled], .btn:disabled{
+    color: white;
+}
