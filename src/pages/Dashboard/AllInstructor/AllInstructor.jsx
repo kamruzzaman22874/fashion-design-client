@@ -14,7 +14,7 @@ const AllInstructor =() =>{
     return (
        <div>
         <h2 className="text-3xl text-white text-center my-8 uppercase">Popular Instructor</h2>
-         <div className="my-20 grid md:grid-cols-3 gap-10 px-20">
+         <div className="my-20 grid md:grid-cols-3 gap-10 md:px-20">
             {
                 instructors.map(instructor => <AllInstructorsInfo
                 key={instructor._id}

@@ -5,7 +5,7 @@ const MyClasses = () =>{
     const [classes] = useClasses()
     console.log(classes)
     return (
-        <div className="w-full">
+        <div className="w-full my-20">
             <h2 className="text-white">My classes: {classes.length}</h2>
             <div className="overflow-x-auto text-white">
             <table className="table text-white">
@@ -43,7 +43,7 @@ const MyClasses = () =>{
                     <td>${item.price}</td>
                     <td>
                     <button className="btn btn-ghost btn-xs">
-                        {item.status === "approved"? <p className="text-green-500">Approved</p> : "" }
+                        {item?.status}
                     </button>
                     </td>
                     <td>

@@ -56,7 +56,7 @@ const PopularClasses = ({ product }) => {
         }
     }
     return (
-        <div className={`${availableSeats === 0 ? "bg-red-500" : "bg-transparent"} opacity-100 border group hover:shadow-xl w-full h-[600px] font-lato`}>
+        <div className={`${availableSeats === 0 ? "bg-red-700" : "bg-transparent"} opacity-100 border group hover:shadow-xl w-full h-[600px] font-lato`}>
             <figure data-aos="zoom-in" className="md:px-10 md:pt-10">
                 <img src={image} alt="product" className="rounded-xl h-[300px] w-full" />
             </figure>

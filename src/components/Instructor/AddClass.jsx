@@ -70,7 +70,7 @@ const AddClass = () => {
             Class name:
           </label>
           <input
-            className="shadow appearance-none bg-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-white bg-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
             id="className"
             type="text"
             placeholder="Class name"
@@ -83,7 +83,7 @@ const AddClass = () => {
             Photo URL:
           </label>
           <input
-            className="shadow appearance-none bg-black border rounded w-full py-1 px-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-white bg-black border rounded w-full py-1 px-3 leading-tight focus:outline-none focus:shadow-outline"
             id="classImage"
             type="file"
             placeholder='Photo URL'
@@ -100,7 +100,7 @@ const AddClass = () => {
           <input
             defaultValue={user?.displayName}
             readOnly
-            className="shadow appearance-none bg-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-white bg-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
             id="className"
             type="text"
             placeholder="Instructor Name"
@@ -130,7 +130,7 @@ const AddClass = () => {
             Available Seat:
           </label>
           <input
-            className="shadow appearance-none bg-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-white bg-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
             id="className"
             type="number"
             placeholder="Available Seat"
@@ -142,7 +142,7 @@ const AddClass = () => {
             Price:
           </label>
           <input
-            className="shadow appearance-none bg-black border rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-white bg-black border rounded w-full py-2 px-3 text-gray-500 leading-tight focus:outline-none focus:shadow-outline"
             id="price"
             type="number"
             placeholder="Price"
