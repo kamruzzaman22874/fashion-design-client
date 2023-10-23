@@ -13,7 +13,7 @@ const ManageClasses = () =>{
       queryKey: ['classes',user?.email],
       enabled:!loading && !!user?.email  && !! localStorage.getItem('access-token'),
       queryFn: async () =>{
-        const res = await fetch("http://localhost:5000/classes");
+        const res = await fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/classes");
         const data = await res.json();
         return data;
     }
@@ -21,7 +21,7 @@ const ManageClasses = () =>{
 
 
     // useEffect(() =>{
-    //     fetch("http://localhost:5000/classes")
+    //     fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/classes")
     //     .then(res => res.json())
     //     .then(data =>{
     //         refetch()
@@ -33,7 +33,7 @@ const ManageClasses = () =>{
     const handleApproved =(id) =>{
       
       console.log(id)
-        fetch(`http://localhost:5000/classes/approve/${id}`,{
+        fetch(`https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/classes/approve/${id}`,{
             method: "PATCH",
             headers: {"content-type": "application/json"}
 

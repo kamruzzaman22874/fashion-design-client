@@ -27,7 +27,7 @@ const RegistrationPage = () => {
                             phoneNumber: data.phoneNumber,
                             address: data.address
                         };
-                        fetch("http://localhost:5000/users", {
+                        fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/users", {
                             method: 'POST',
                             headers: { "content-type": "application/json" },
                             body: JSON.stringify(saveUser)

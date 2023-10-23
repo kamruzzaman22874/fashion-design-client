@@ -7,7 +7,7 @@ const AdminHome =() =>{
     const {data:stats = {}} = useQuery({
         queryKey: ["admin-stast"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/admin-stats");
+            const res = await fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/admin-stats");
             const data = await res.json();
             return data;
         }

@@ -9,7 +9,7 @@ const useProduct = () => {
         queryKey: ['products', user?.email],
         enabled:!loading && !!user?.email  && !! localStorage.getItem('access-token'),
         queryFn: async () =>{
-            const res = await fetch(`http://localhost:5000/products/${user?.email}`,{
+            const res = await fetch(`https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/products/${user?.email}`,{
                 headers: {authorization: `bearer ${token}`}
             
             });

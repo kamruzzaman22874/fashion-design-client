@@ -8,7 +8,7 @@ const useClasses =() =>{
     const {data: classes =[],refetch, isLoading:loading} = useQuery({
         queryKey:["classes", user?.email],
         queryFn: async () =>{
-          const res = await fetch(`http://localhost:5000/users/instructorClass/${user?.email}`)
+          const res = await fetch(`https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/users/instructorClass/${user?.email}`)
           return res.json();
 
         }

@@ -20,7 +20,7 @@ const PopularClasses = ({ product }) => {
         console.log(product);
         if (user && user.email) {
             const productItem = {productId: _id, image, image1, email:user?.email,className,instructorName,price,availableSeats,rating}
-            fetch("http://localhost:5000/products", {
+            fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/products", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(productItem)
