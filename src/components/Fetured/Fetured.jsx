@@ -28,7 +28,7 @@ const Fetured = () => {
                 ></SectionTitle>
                 <p className="text-center text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse urna nibh, <br /> viverra non.Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10 my-16 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-10 md:my-16 md:gap-8 gap-10 px-5">
                 {
                     fetured?.map(feture => <Feture key={feture._id} feture={feture} />)
                 }

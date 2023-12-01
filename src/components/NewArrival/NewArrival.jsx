@@ -38,7 +38,7 @@ const NewArrival = () => {
             <SectionTitle
                 title="NEW ARRIVALS"
             ></SectionTitle>
-            <div className="grid md:grid-cols-3 md:my-10 md:px-20 card-bg">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 md:my-10 md:px-20 card-bg">
                 {productsToDisplay.map((product, idx) => (
                     <PopularClasses key={idx} product={product} />
                 ))}
