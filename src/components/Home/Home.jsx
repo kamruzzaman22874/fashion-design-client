@@ -5,6 +5,7 @@ import OurBrands from "../OurBrands/OurBrands";
 import OurShop from "../OurShop/OurShop";
 import Services from "../Services/Services";
 import AllInstructor from "../../pages/Dashboard/AllInstructor/AllInstructor";
+import Fetured from "../Fetured/Fetured";
 
 const Home = () => {
     return (
@@ -12,12 +13,13 @@ const Home = () => {
             <Helmet>
                 <title>Fashion | Home</title>
             </Helmet>
-            <Banner/>
-            <OurShop/>
-            <NewArrival/>
-            <AllInstructor/>
-            <Services/>
-            <OurBrands/>
+            <Banner />
+            <OurShop />
+            <NewArrival />
+            <AllInstructor />
+            <Fetured />
+            <Services />
+            <OurBrands />
         </div>
     );
 };

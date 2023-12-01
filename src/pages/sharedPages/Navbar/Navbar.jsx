@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/navLogo.png"
-import { useContext} from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
 import Swal from "sweetalert2";
 import { FaCartArrowDown } from 'react-icons/fa';
@@ -12,7 +12,6 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [products] = useProduct()
     const [isAdmin] = useAdmin()
-    console.log(isAdmin)
     const [isInstructor] = useInstructor()
     const handleLogout = () => {
         logOut()
@@ -38,16 +37,16 @@ const Navbar = () => {
                 <li><Link to="/instructor">INSTRUCTORS</Link></li>
                 <li><Link to="/classes">CLASSES</Link></li>
                 {
-                    isAdmin?.role ==="admin" ? (<li><Link to="/dashboard/adminhome">DASHBOARD</Link></li>) :
-                    isInstructor?.role ==="instructor"? (<li><Link to="/dashboard/instructorhome">DASHBOARD</Link></li>) :
-                    (<li><Link to="/dashboard/userhome">DASHBOARD</Link></li>)
+                    isAdmin?.role === "admin" ? (<li><Link to="/dashboard/adminhome">DASHBOARD</Link></li>) :
+                        isInstructor?.role === "instructor" ? (<li><Link to="/dashboard/instructorhome">DASHBOARD</Link></li>) :
+                            (<li><Link to="/dashboard/userhome">DASHBOARD</Link></li>)
 
                 }
                 <li className=" px-2 py-1">
                     <Link to="/dashboard/myproduct">
                         <button className="flex justify-center items-center">
                             <FaCartArrowDown className="text-yellow-400" />
-                            <div className="badge badge-secondary text-white"> +{products?.length || 0}</div>
+                            <div className="badge badge-primary text-white"> +{products?.length || 0}</div>
                         </button>
 
                     </Link>
@@ -78,7 +77,7 @@ const Navbar = () => {
     </>
     return (
         <div className="font-teko font-semibold fixed top-0 z-10 w-full max-w-7xl mx-auto">
-            <div className="navbar bg-[#a555ad] z-10">
+            <div className="navbar bg-[#18AB8E] z-10">
                 <div className="navbar-start px-20">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

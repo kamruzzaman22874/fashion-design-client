@@ -4,9 +4,9 @@ import { BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const UserInfo = () => {
-    const [products,refetch] = useProduct()
+    const [products, refetch] = useProduct()
     console.log(products)
-  
+
     const handleDeleteItem = (id) => {
         console.log("delete item", id);
         Swal.fire({
@@ -19,21 +19,21 @@ const UserInfo = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/products/${id}`,{
+                fetch(`http://localhost:5000/products/${id}`, {
                     method: "DELETE"
                 })
-                .then(res => res.json())
-                .then(data =>{
-                    refetch()
-                    if(data.deletedCount>0){
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
-                    }
-                })
-                
+                    .then(res => res.json())
+                    .then(data => {
+                        refetch()
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+
             }
         })
     }
@@ -70,7 +70,7 @@ const UserInfo = () => {
                             <td>pending</td>
                             <td>
                                 <button onClick={() => handleDeleteItem(item._id)} className="btn btn-ghost btn-xs">
-                                    <BsTrash className="text-2xl text-red-600"/>
+                                    <BsTrash className="text-2xl text-red-600" />
                                 </button>
                             </td>
                         </tr>)
@@ -80,9 +80,9 @@ const UserInfo = () => {
             </table>
             <div className="flex justify-center bg-blue-500 py-2 rounded">
                 <Link to="/dashboard/payment">
-                <button>
-                    Payment
-                </button>
+                    <button>
+                        Payment
+                    </button>
                 </Link>
             </div>
         </div>

@@ -20,7 +20,7 @@ const SocialLogin = () => {
                     email: loggedUser.email
                 };
                 console.log(loggedUser);
-                fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/users", {
+                fetch("http://localhost:5000/users", {
                     method: 'POST',
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify(saveUser)
@@ -28,7 +28,7 @@ const SocialLogin = () => {
                     .then(res => res.json())
                     .then(() => {
                         navigate(from, { replace: true });
-                        
+
                     })
             })
             .catch(err => {

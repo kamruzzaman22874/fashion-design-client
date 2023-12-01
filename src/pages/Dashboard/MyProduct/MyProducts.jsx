@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 const MyProduct = () => {
-    const [ products, setProducts] = useState([])
-    useEffect(() =>{
-        fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/classes")
-        .then(res => res.json())
-        .then(data =>{
-            setProducts(data)
-    })
-  },[])
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        fetch("http://localhost:5000/classes")
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }, [])
     return (
         <div className="my-[76px] w-full">
             <div className="grid md:grid-cols-3 gap-5 p-5 text-white">

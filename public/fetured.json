@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Hat",
+        "date": "Nov 01 , 2016",
+        "image": "https://i.ibb.co/6FM9Z9D/fetured.webp",
+        "title": "BEAUTY AND THE SCIENTIST",
+        "description": "Aliquam erat volutpat. Aenean pretium nisi et est sollicitudin, non laoreet turpis scelerisque. ..."
+    },
+    {
+        "name": "Skirt",
+        "date": "Nov 01 , 2016",
+        "image": "https://i.ibb.co/X45Xj9d/fetured1.webp",
+        "title": "A BLESSED AND BLISSFUL LIFE",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed massa at enim hendrerit sc..."
+    },
+    {
+        "name": "Hat",
+        "date": "Nov 01 , 2016",
+        "image": "https://i.ibb.co/Yb5txkG/fetured2.webp",
+        "title": "CONFESSIONS OF A COSMETOLOGIST",
+        "description": "Ut dolor sapien, posuere id turpis non, venenatis ultrices est. Nullam hendrerit at nisl sit amet..."
+    }
+]

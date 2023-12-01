@@ -1,10 +1,10 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProviders";
-import  "./CheckoutForm.css"
+import "./CheckoutForm.css"
 
-const CheckoutForm =({price,products}) =>{
-    const {user} = useContext(AuthContext)
+const CheckoutForm = ({ price, products }) => {
+    const { user } = useContext(AuthContext)
     const stripe = useStripe()
     const elements = useElements()
     const [cardError, setCardError] = useState('')
@@ -12,70 +12,70 @@ const CheckoutForm =({price,products}) =>{
     const [proccessing, setProccessing] = useState(false);
     const [transactionId, setTransactionId] = useState('')
 
-    useEffect(() =>{
-        if(price > 0){
-            fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/create-payment-intent",{
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({
-                price: 100,
-            }),
-        })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            setClientSecret(data.clientSecret);
-        })
+    useEffect(() => {
+        if (price > 0) {
+            fetch("http://localhost:5000/create-payment-intent", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    price: 100,
+                }),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    setClientSecret(data.clientSecret);
+                })
         }
-    },[price])
+    }, [price])
 
 
 
 
-    const handleSubmit = async (event) =>{
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        if(!stripe || !elements){
+        if (!stripe || !elements) {
             return;
         }
         const card = elements.getElement(CardElement)
-        if(card === null){
+        if (card === null) {
             return;
         }
-        const {error} = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: "card",
             card,
         })
-        if(error){
+        if (error) {
             console.log(error)
             setCardError(error.message)
         }
-        else{
+        else {
             setCardError('')
         }
 
         setProccessing(true)
 
-        const { paymentIntent , error:confirmError} = await stripe.confirmCardPayment(
-            clientSecret, 
-        {
-            payment_method: {
-            card: card,
-            billing_details: {
-                email: user?.email || "unknown",
-                name: user?.displayName || "annonymous",
-            },
-            },
-        })
-        
-        if(confirmError){
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        email: user?.email || "unknown",
+                        name: user?.displayName || "annonymous",
+                    },
+                },
+            })
+
+        if (confirmError) {
             setCardError(confirmError)
         }
         setProccessing(false)
-        if(paymentIntent?.status === "succeeded"){
+        if (paymentIntent?.status === "succeeded") {
             setTransactionId(paymentIntent.id)
-            const payment ={
+            const payment = {
                 name: user?.displayName,
                 email: user?.email,
                 data: new Date(),
@@ -88,49 +88,49 @@ const CheckoutForm =({price,products}) =>{
                 quantity: products.length,
 
             }
-            fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/payments",{
+            fetch("http://localhost:5000/payments", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
                 },
                 body: JSON.stringify(payment),
             })
-            .then(res => res.json())
-            .then(data =>{
-                console.log(data)
-                if(data.insertedId){
-                    alert("Payment confirmed successfully")
-                }
-            })
-            
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        alert("Payment confirmed successfully")
+                    }
+                })
+
         }
     }
-return(
-    <>
-    <form className="w-2/3 mx-auto" onSubmit={handleSubmit}>
-      <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: '16px',
-              color: '#424770',
-              '::placeholder': {
-                color: '#aab7c4',
-              },
-            },
-            invalid: {
-              color: '#9e2146',
-            },
-          },
-        }}
-      />
-      <button className="w-full py-2 bg-blue-500 my-10 rounded" type="submit" disabled={!stripe || !clientSecret ||proccessing}>
-        Payment
-      </button> <br />
-    </form>
-    {cardError && <p className="text-red-600 text-center my-5">{cardError}</p>}
-    {transactionId && <p className="text-xl text-green-600">Your transaction successfully completed with transactionId: {transactionId}</p>}
-    </>
-)
+    return (
+        <>
+            <form className="w-2/3 mx-auto" onSubmit={handleSubmit}>
+                <CardElement
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '16px',
+                                color: '#424770',
+                                '::placeholder': {
+                                    color: '#aab7c4',
+                                },
+                            },
+                            invalid: {
+                                color: '#9e2146',
+                            },
+                        },
+                    }}
+                />
+                <button className="w-full py-2 bg-blue-500 my-10 rounded" type="submit" disabled={!stripe || !clientSecret || proccessing}>
+                    Payment
+                </button> <br />
+            </form>
+            {cardError && <p className="text-red-600 text-center my-5">{cardError}</p>}
+            {transactionId && <p className="text-xl text-green-600">Your transaction successfully completed with transactionId: {transactionId}</p>}
+        </>
+    )
 }
 export default CheckoutForm;

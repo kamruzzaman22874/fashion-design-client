@@ -11,7 +11,7 @@ const NewArrival = () => {
     const itemsPerPage = 3;
 
     useEffect(() => {
-        fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/classes")
+        fetch("http://localhost:5000/classes")
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

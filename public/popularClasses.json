@@ -1,55 +1,55 @@
 [
     {
-        "classesName":"Indian Bag",
-        "image":"https://i.ibb.co/28sGrf8/product1.webp",
-        "instructorName":"Hasan",
-        "instructorEmail":"hasan@gmail.com",
-        "availableSeat":"67",
+        "classesName": "Indian Bag",
+        "image": "https://i.ibb.co/28sGrf8/product1.webp",
+        "instructorName": "Hasan",
+        "instructorEmail": "hasan@gmail.com",
+        "availableSeat": "67",
         "rating": "3.2",
         "price": 5500
     },
     {
-        "classesName":"Thainlad Special Bag",
+        "classesName": "Thainlad Special Bag",
         "image": "https://i.ibb.co/Mpm2jQ7/product3.webp",
-        "instructorName":"Jamal",
-        "instructorEmail":"jamal@gmail.com",
-        "availableSeat":"45",
+        "instructorName": "Jamal",
+        "instructorEmail": "jamal@gmail.com",
+        "availableSeat": "45",
         "rating": "4.5",
         "price": "5000"
     },
     {
-        "classesName":"Modern Bag",
+        "classesName": "Modern Bag",
         "image": "https://i.ibb.co/rGF5kZC/product5.webp",
-        "instructorName":"Rony",
-        "instructorEmail":"rony@gmail.com",
-        "availableSeat":"25",
+        "instructorName": "Rony",
+        "instructorEmail": "rony@gmail.com",
+        "availableSeat": "25",
         "rating": "5.2",
         "price": 6000
     },
     {
-        "classesName":"Plazu",
+        "classesName": "Plazu",
         "image": "https://i.ibb.co/SyrymCn/product7.webp",
-        "instructorName":"Imran",
-        "instructorEmail":"imran@gmail.com",
-        "availableSeat":"45",
+        "instructorName": "Imran",
+        "instructorEmail": "imran@gmail.com",
+        "availableSeat": "45",
         "rating": "5.3",
         "price": 3000
     },
     {
-        "classesName":"Three pice",
+        "classesName": "Three pice",
         "image": "https://i.ibb.co/Mpm2jQ7/product3.webp",
-        "instructorName":"Adnan",
+        "instructorName": "Adnan",
         "instructorEmail": "adnan@gmail.com",
-        "availableSeat":"15",
+        "availableSeat": "15",
         "rating": "3.7",
         "price": 2500
     },
     {
-        "classesName":"Money Bag",
+        "classesName": "Money Bag",
         "image": "https://i.ibb.co/sQ2Fr8d/product4.webp",
-        "instructorName":"Sajib",
+        "instructorName": "Sajib",
         "instructorEmail": "sajib@gmail.com",
-        "availableSeat":"45",
+        "availableSeat": "45",
         "rating": "5.0",
         "price": 2000
     }

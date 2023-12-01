@@ -14,13 +14,13 @@ const PopularClasses = ({ product }) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
-    const [,refetch] = useProduct()
-    const {_id, image, image1, className, instructorName, instructorEmail, price, availableSeats, rating } = product;
+    const [, refetch] = useProduct()
+    const { _id, image, image1, className, instructorName, instructorEmail, price, availableSeats, rating } = product;
     const handleAddToCart = (product) => {
         console.log(product);
         if (user && user.email) {
-            const productItem = {productId: _id, image, image1, email:user?.email,className,instructorName,price,availableSeats,rating}
-            fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/products", {
+            const productItem = { productId: _id, image, image1, email: user?.email, className, instructorName, price, availableSeats, rating }
+            fetch("http://localhost:5000/products", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(productItem)
@@ -50,7 +50,7 @@ const PopularClasses = ({ product }) => {
                 confirmButtonText: 'Please Login!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate("/login", {state: {from:location}})
+                    navigate("/login", { state: { from: location } })
                 }
             })
         }

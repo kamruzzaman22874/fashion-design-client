@@ -5,54 +5,54 @@ import Swal from "sweetalert2";
 
 const AllUsers = () => {
     const token = localStorage.getItem("access-token")
-    const { data: users = [], refetch} = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryFn: async () => {
-            const res = await fetch("https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/users",{
-                headers: {authorization: `bearer ${token}`},
+            const res = await fetch("http://localhost:5000/users", {
+                headers: { authorization: `bearer ${token}` },
             });
             return res.json()
         }
     })
 
-    
-    const handleMakeAdmin =(user) =>{
-        fetch(`https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/users/admin/${user._id}`,{
+
+    const handleMakeAdmin = (user) => {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: "PATCH"
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            refetch()
-            if (data.modifiedCount > 0){
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${user?.name} is an admin now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                refetch()
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user?.name} is an admin now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
-    const handleMakeInstructor = (user) =>{
-        fetch(`https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/users/instructor/${user._id}`,{
+    const handleMakeInstructor = (user) => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
             method: "PATCH"
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            refetch()
-            if (data.modifiedCount > 0){
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${user?.name} is an instructor now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                refetch()
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user?.name} is an instructor now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     const handleDeleteItem = (user) => {
@@ -66,7 +66,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://fashion-design-server-fombsp1yl-kamruzzaman22874.vercel.app/users/${user?._id}`, {
+                fetch(`http://localhost:5000/users/${user?._id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -120,17 +120,17 @@ const AllUsers = () => {
                                 </td>
                                 <td>
                                     {user.role === "admin" ? "admin" :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs">  
-                                     <FaUserShield className="text-2xl text-green-600" />
-                                    </button>
-                                     } 
+                                        <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs">
+                                            <FaUserShield className="text-2xl text-green-600" />
+                                        </button>
+                                    }
                                 </td>
                                 <td>
-                                    {user?.role === "instructor" ? "instructor":
-                                    
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs">  
-                                     <FaUserSecret className="text-2xl text-green-600" />
-                                    </button>}
+                                    {user?.role === "instructor" ? "instructor" :
+
+                                        <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost btn-xs">
+                                            <FaUserSecret className="text-2xl text-green-600" />
+                                        </button>}
                                 </td>
                                 <td>
                                     <button onClick={() => handleDeleteItem(user)} className="btn btn-ghost btn-xs">
