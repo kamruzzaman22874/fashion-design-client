@@ -31,7 +31,7 @@ const AddClass = () => {
             status: "pending",
           }
 
-          fetch("http://localhost:5000/classes", {
+          fetch("https://fashion-design-server-seven.vercel.app/classes", {
             method: "POST",
             headers: {
               "content-type": "application/json",

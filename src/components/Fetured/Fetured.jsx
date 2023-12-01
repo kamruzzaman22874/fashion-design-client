@@ -11,7 +11,7 @@ const Fetured = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/fetured")
+        fetch("https://fashion-design-server-seven.vercel.app/fetured")
             .then(res => res.json())
             .then(data => {
                 setFetched(data);

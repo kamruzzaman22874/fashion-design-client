@@ -20,7 +20,7 @@ const SocialLogin = () => {
                     email: loggedUser.email
                 };
                 console.log(loggedUser);
-                fetch("http://localhost:5000/users", {
+                fetch("https://fashion-design-server-seven.vercel.app/users", {
                     method: 'POST',
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify(saveUser)

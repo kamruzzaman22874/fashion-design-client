@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 const MyProduct = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/classes")
+        fetch("https://fashion-design-server-seven.vercel.app/classes")
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

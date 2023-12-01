@@ -5,7 +5,7 @@ const Modal = ({ feedbackId }) => {
   const [feedback, setFeedback] = useState("");
   const handleFeedback = () => {
     console.log(feedback, feedbackId)
-    fetch(`http://localhost:5000/classes/feedback/${feedbackId}`, {
+    fetch(`https://fashion-design-server-seven.vercel.app/classes/feedback/${feedbackId}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ feedback })
