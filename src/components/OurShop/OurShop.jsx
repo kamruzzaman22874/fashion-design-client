@@ -3,8 +3,6 @@ import { RiDoubleQuotesL } from 'react-icons/ri';
 import signature from "../../assets/logo/signature.webp"
 import shop1 from "../../assets/image/shop1.jpg"
 import shop2 from "../../assets/image/shop-2.webp"
-import shop3 from "../../assets/image/shop3.webp"
-import shop4 from "../../assets/image/shop4.webp"
 
 const OurShop = () => {
     return (
@@ -15,14 +13,14 @@ const OurShop = () => {
                 </div>
                 <div className="space-y-6">
                     <h2 className="text-3xl">Welcome to Our Shop</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed massa at enim hendrerit scelerisque at ut nulla. Fusce pharetra consectetur lacus sed eleifend. Ut dolor sapien, posuere id turpis non, venenatis ultrices est. Nullam hendrerit at nisl sit amet scelerisque. Vestibulum nec dolor ac quam fringilla rhoncus nec vel dolor.
+                    <p>Step into a world where creativity knows no bounds and fashion becomes a canvas for self-expression. At Fashion, we invite you to embark on a journey that transcends trends and embraces the essence of individuality. With a passion for innovation and an unwavering commitment to elegance, we curate a collection that celebrates the diversity of style.
 
                     </p>
-                        
+
                     <div className='py-5'>
-                            <RiDoubleQuotesL className='text-2xl' />
+                        <RiDoubleQuotesL className='text-2xl' />
                         <p className='px-6'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                            More than just clothing, Fashion Design is a celebration of confidence and empowerment. We believe that fashion is a language—one that speaks volumes about your personality and aspirations. Our mission is to empower you to embrace your individuality fearlessly, to experiment, to express, and to set your trends.
                         </p>
                     </div>
                     <img className='' src={signature} alt="" />

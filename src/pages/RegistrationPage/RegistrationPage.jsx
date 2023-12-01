@@ -66,7 +66,7 @@ const RegistrationPage = () => {
                         </Lottie>
                     </div>
                     <div className="w-full">
-                        <div className="max-w-md mx-auto mt-5 p-6 w-full shadow-2xl bg-white border-[#3ec5c7] bg-transparent rounded">
+                        <div className="max-w-md mx-auto mt-5 p-6 w-full shadow-2xl bg-[#111827] border-[#3ec5c7] bg-transparent rounded">
                             <h2 className="text-2xl font-semibold mb-4 text-[#a555ad] uppercase">Sign Up</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-4">
@@ -141,7 +141,7 @@ const RegistrationPage = () => {
                                         className="w-full border rounded py-2 px-3 text-gray-700 focus:outline-none focus:border-blue-400"
                                     />
                                 </div>
-                                <p className="text-center py-5">ALREADY HAVE AN ACCOUNT PLEASE?  <Link to="/login" className="underline">LOGIN</Link> </p>
+                                <p className="text-center text-white py-5">ALREADY HAVE AN ACCOUNT PLEASE?  <Link to="/login" className="underline">LOGIN</Link> </p>
                                 <div className="text-center">
                                     <button
                                         type="submit"
@@ -150,7 +150,7 @@ const RegistrationPage = () => {
                                         Sign Up
                                     </button>
                                 </div>
-                                <div className="divider">OR</div>
+                                <div className="divider text-white">OR</div>
                                 <SocialLogin />
 
                             </form>

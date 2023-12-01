@@ -19,9 +19,6 @@ const Fetured = () => {
     }, [])
     return (
         <div>
-            <Helmet>
-                <title>Fashion | Fetured</title>
-            </Helmet>
             <div>
                 <SectionTitle
                     title="FEATURED ARTICLE"

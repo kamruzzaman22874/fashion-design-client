@@ -9,8 +9,8 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../sharedPages/SocialLogin/SocialLogin";
 const LoginPage = () => {
-    const { register, handleSubmit,reset, formState: { errors } } = useForm();
-    const { userLogin} = useContext(AuthContext)
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { userLogin } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -31,34 +31,34 @@ const LoginPage = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                
+
                 navigate(from, { replace: true })
-                
+
             })
             .catch((err) => {
                 setError(err.message);
             });
-            
+
     };
 
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-   
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div className="font-roboto  px-5 pb-5">
             <Helmet>
                 <title>Fashion | Login</title>
             </Helmet>
-            <div className="md:flex items-center justify-center  md:px-16">
+            <div className="md:flex flex-col-1 items-center justify-center  md:px-16">
                 <div className="rounded-lg">
                     <Lottie className="md:w-[30rem]" animationData={signup}>
 
                     </Lottie>
                 </div>
                 <div className="w-full mt-28 h-full">
-                    <div className="max-w-md mx-auto mt-5 p-6 w-full shadow-2xl bg-white border-[#3ec5c7] bg-transparent  rounded">
+                    <div className="md:max-w-md mx-auto mt-5 p-6 w-full shadow-2xl bg-[#111827] border-[#3ec5c7] bg-transparent  rounded">
                         <h2 className="text-2xl font-semibold mb-4 text-[#a555ad] uppercase">Login</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-4">
@@ -83,12 +83,12 @@ const LoginPage = () => {
                                 />
                                 <span
                                     onClick={togglePasswordVisibility}
-                                    className="absolute right-60 mt-5 transform -translate-y-1/2 cursor-pointer"
+                                    className="absolute md:right-60 right-16 -bottom-[510px] md:bottom-[219px] transform -translate-y-1/2 cursor-pointer"
                                 >
                                     {showPassword ? (
-                                        <GiSheikahEye className="text-xl text-blue-500"/>
+                                        <GiSheikahEye className="text-xl text-blue-500" />
                                     ) : (
-                                            <GiTemplarEye className="text-xl text-red-500" />
+                                        <GiTemplarEye className="text-xl text-red-500" />
                                     )}
                                 </span>
                                 {
@@ -96,8 +96,8 @@ const LoginPage = () => {
                                 }
                                 {errors.password && <span className="text-red-500">Password is required</span>}
                             </div>
-                            <p className="text-center py-5">DO NOT HAVE AN ACCOUNT? <Link to="/signup" className="underline">SIGN UP</Link> </p>
-                            
+                            <p className="text-center text-white py-5">DO NOT HAVE AN ACCOUNT? <Link to="/signup" className="underline">SIGN UP</Link> </p>
+
                             <div className="text-center">
                                 <button
                                     type="submit"
@@ -105,10 +105,10 @@ const LoginPage = () => {
                                 >
                                     Login
                                 </button>
-                            </div> 
+                            </div>
                         </form>
-                        <div className="divider">OR</div>
-                        <SocialLogin/>
+                        <div className="divider text-white">OR</div>
+                        <SocialLogin />
                     </div>
 
                 </div>
