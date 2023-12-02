@@ -9,7 +9,7 @@ const Services = () => {
         <div className="my-20">
             <SectionTitle
                 title="OUR SERVICE"
-                subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                subTitle="Discover expert consultations and personalized design solutions tailored to elevate your style with our comprehensive fashion services."
             ></SectionTitle>
 
             <div className="grid md:grid-cols-2 py-3 gap-10 p-5 text-white">

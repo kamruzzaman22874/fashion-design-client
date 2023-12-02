@@ -47,7 +47,7 @@ const Footer = () => {
 
                         <ul className="mt-8 space-y-4">
                             <li>
-                                <a href="#" title="" className="text-base text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"> Free eBooks </a>
+                                <a href="#" title="" className="text-base text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"> Modern Fashion </a>
                             </li>
                             <li>
                                 <a href="#" title="" className="text-base text-white transition-all duration-200 hover:text-opacity-80 focus:text-opacity-80"> Development Tutorial </a>
